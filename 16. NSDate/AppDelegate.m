@@ -150,10 +150,10 @@
     
 }
 -(void) happyBirthday:(NSTimer*) timer{
-    self.acceleratedDate=[self.acceleratedDate dateByAddingTimeInterval:2*1*24*60*60];
+    NSCalendar *calendar=[NSCalendar currentCalendar];
+    self.acceleratedDate=[calendar dateByAddingUnit:NSCalendarUnitDay value:2 toDate:self.acceleratedDate options:0];
     for (NVStudent *obj in timer.userInfo){
         
-        NSCalendar *calendar=[NSCalendar currentCalendar];
         NSInteger currentAcceleratedDay=[calendar component:NSCalendarUnitDay fromDate:self.acceleratedDate];
         NSInteger currentAcceleratedMonth=[calendar component:NSCalendarUnitMonth fromDate:self.acceleratedDate];
         NSInteger studentDayOfBirth=[calendar component:NSCalendarUnitDay fromDate:obj.dateOfBirth];
